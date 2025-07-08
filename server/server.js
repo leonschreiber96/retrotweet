@@ -1,4 +1,3 @@
-
 import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
@@ -16,11 +15,7 @@ await db.read();
 await db.write();
 
 const app = express();
-app.use(express.static(join(__dirname, '../frontend/build')));
-
-app.get('*', (req, res) => {
-  res.sendFile(join(__dirname, '../frontend/build', 'index.html'));
-});
+app.use(cors());
 app.use(bodyParser.json());
 
 app.get('/tweets', (req, res) => {
@@ -87,6 +82,11 @@ app.post('/tweets/:id/reply', async (req, res) => {
     }
 });
 
+app.use(express.static(join(__dirname, '../frontend/build')));
+
+app.get('*', (req, res) => {
+  res.sendFile(join(__dirname, '../frontend/build', 'index.html'));
+});
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
