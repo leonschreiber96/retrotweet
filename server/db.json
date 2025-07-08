@@ -1,0 +1,20 @@
+{
+  "tweets": [
+    {
+      "id": "1751968107667",
+      "content": "test",
+      "createdAt": "2025-07-08T09:48:27.667Z",
+      "likes": 1,
+      "retweets": 1,
+      "replies": []
+    },
+    {
+      "id": "1751968125769",
+      "content": "I am Leon",
+      "createdAt": "2025-07-08T09:48:45.769Z",
+      "likes": 0,
+      "retweets": 0,
+      "replies": []
+    }
+  ]
+}
