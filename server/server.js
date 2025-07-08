@@ -16,7 +16,11 @@ await db.read();
 await db.write();
 
 const app = express();
-app.use(cors());
+app.use(express.static(join(__dirname, '../frontend/build')));
+
+app.get('*', (req, res) => {
+  res.sendFile(join(__dirname, '../frontend/build', 'index.html'));
+});
 app.use(bodyParser.json());
 
 app.get('/tweets', (req, res) => {
